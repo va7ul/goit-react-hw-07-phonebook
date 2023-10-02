@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { Formik, Field } from 'formik';
-import { nanoid } from 'nanoid';
 import { CardForm, Button } from './ContactForm.styled';
 import { selectContacts } from 'redux/selectors';
 
@@ -15,7 +14,7 @@ export const ContactForm = () => {
       return;
     }
 
-    dispatch(addContact({ id: nanoid(), ...newContact }));
+    dispatch(addContact({ ...newContact }));
   };
 
   return (
